@@ -8,7 +8,7 @@ import { Formik, Form, Field } from "formik";
 import { RegisterValidator } from "../../static/validator";
 import CustomFiled from "../../components/CustomFiled";
 import { RxAvatar } from "react-icons/rx";
-
+import { server } from "../../static/index";
 const Register = () => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
@@ -18,18 +18,19 @@ const Register = () => {
     setAvatar(e.target.files[0]);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const server = "localhost:3000/api";
+  const handleSubmit = async (values) => {
+    const { password, fullname, email } = values;
+    const data = new FormData();
+    data.append("file", Avatar);
+    data.append("password", password);
+    data.append("email", email);
+    data.append("fullname", fullname);
+    const config = {
+      headers: { "Content-Type": "multipart/form-data" },
+    };
+
     await axios
-      .post(
-        `${server}/user/login-user`,
-        {
-          email,
-          password,
-        },
-        { withCredentials: true }
-      )
+      .post(`${server}/users/create`, data, config)
       .then((res) => {
         toast.success("Login Success!");
         navigate("/");

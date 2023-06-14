@@ -7,7 +7,6 @@ function CustomFiled({ field, form: { errors, touched }, ...props }) {
   // const dirty;
   const { onChange, name } = field;
   const { lable, className } = props;
-  console.log(className);
   const ErrorClass =
     "bg-red-50  border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg  focus:border-none dark:bg-gray-700  block w-full p-2.5 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500";
 
