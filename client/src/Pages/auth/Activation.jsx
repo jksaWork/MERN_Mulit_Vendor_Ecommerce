@@ -8,11 +8,14 @@ import { server } from "../../static/index";
 import verfied from "../../assets/verfied.svg";
 import verifed_worng from "../../assets/verifed_worng.svg";
 import { HashLoader } from "react-spinners";
+import { useDispatch } from "react-redux";
+import { StoreUser } from "../../redux/actions/usersAction";
 const Activation = () => {
-  const navigate = useNavigate();
   const { activation_token } = useParams();
   const [AcountActivated, setAcountActivated] = useState(null);
   // console.log();
+  const dispactch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     if (activation_token) {
       const token = activation_token.replaceAll("-", ".");
@@ -21,6 +24,8 @@ const Activation = () => {
         .then((res) => {
           console.log(res);
           setAcountActivated(true);
+          toast.success(res.data.message);
+          dispactch(StoreUser(res.data, navigate));
         })
         .catch((err) => {
           setAcountActivated(false);

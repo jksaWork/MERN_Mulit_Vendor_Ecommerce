@@ -48,13 +48,21 @@ export const creatUser = async (req, res, next) => {
 };
 
 export const ActivateUser = async (req, res, next) => {
-  const { activation_token } = req.params;
-  console.log(activation_token);
-  const { id } = jwt.verify(activation_token, process.env.JWT_ACTIVATION_KEY);
-  // console.log(user);
-  const user = await User.findByIdAndUpdate(id, { activated: true });
-  const token = user.getJwtToken();
-  return res.json({ message: "Your Account Activated Seccfuly", token, user });
+  try {
+    const { activation_token } = req.params;
+    console.log(activation_token);
+    const { id } = jwt.verify(activation_token, process.env.JWT_ACTIVATION_KEY);
+    // console.log(user);
+    const user = await User.findByIdAndUpdate(id, { activated: true });
+    const token = user.getJwtToken();
+    return res.json({
+      message: "Your Account Activated Seccfuly",
+      token,
+      user,
+    });
+  } catch (e) {
+    return next(new ErrorHandler(e.message));
+  }
 };
 
 const createActivationToken = (user) => {
@@ -78,4 +86,8 @@ export const UserLogin = async (req, res, next) => {
     next(new ErrorHandler("No Such User With This Credtioal"));
   const token = user.getJwtToken();
   return res.json({ message: "Your Account Activated Seccfuly", token, user });
+};
+
+export const getUser = (req, res) => {
+  res.json({ status: true, user: req.user });
 };

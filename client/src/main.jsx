@@ -8,6 +8,9 @@ import "./index.css";
 import { Login, Register, Activation } from "./Pages";
 import "react-toastify/dist/ReactToastify.css";
 
+import { Provider } from "react-redux";
+import { store } from "./redux/store.js";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,21 +32,23 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <button onClick={notify}>Notify !</button> */}
-    <RouterProvider router={router} />
-    <div className="">
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
-    </div>
+    <Provider store={store}>
+      {/* <button onClick={notify}>Notify !</button> */}
+      <RouterProvider router={router} />
+      <div className="">
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
+      </div>
+    </Provider>
   </React.StrictMode>
 );
