@@ -7,6 +7,7 @@ const initialState = {
 export const usersReducer = createReducer(initialState, {
   storeuseruata: (state, action) => {
     console.log(action);
+    console.log("userdata - ------", action);
     state.token = action.payload.token;
     state.user = action.payload.user;
     localStorage.setItem(
@@ -16,6 +17,7 @@ export const usersReducer = createReducer(initialState, {
         user: action.payload.user,
       })
     );
+
     return state;
   },
   decrement: (state, action) => state - action.payload,

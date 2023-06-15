@@ -67,7 +67,7 @@ export const ActivateUser = async (req, res, next) => {
 
 const createActivationToken = (user) => {
   return jwt.sign({ id: user._id }, process.env.JWT_ACTIVATION_KEY, {
-    expiresIn: 604800,
+    expiresIn: 60 * 60 * 60 * 24,
   });
 };
 

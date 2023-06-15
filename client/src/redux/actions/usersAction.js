@@ -9,5 +9,6 @@ export const StoreUser = (data, navigate) => async (dispatch) => {
 
 export const getUserData = () => async (dispatch) => {
   const { data } = await API.get(`${server}/users/getUser`);
-  dispatch({ type: "storeuseruata", payload: data });
+  //   dispatch({ type: "storeuseruata", payload: data });
+  console.log(data);
 };
