@@ -7,23 +7,23 @@ import { toast } from "react-toastify";
 import { Formik, Form, Field } from "formik";
 import { LoginValidator } from "../../static/validator";
 import CustomFiled from "../../components/CustomFiled";
+import { server } from "../../static/index";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const server = "localhost:3000/api";
+  const handleSubmit = async (values) => {
+    const { email, password } = values;
     await axios
       .post(
-        `${server}/user/login-user`,
+        `${server}/users/login`,
         {
           email,
           password,
-        },
-        { withCredentials: true }
+        }
+        // { withCredentials: true }
       )
       .then((res) => {
         toast.success("Login Success!");
@@ -31,7 +31,8 @@ const Login = () => {
         window.location.reload(true);
       })
       .catch((err) => {
-        toast.error(err.response.data.message);
+        console.log(err);
+        toast.error("invalid Credintals");
       });
   };
 

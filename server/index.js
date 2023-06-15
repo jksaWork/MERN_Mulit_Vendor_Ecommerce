@@ -9,6 +9,7 @@ import connnect from "./database/index.js";
 import ErrorHandler from "./utils/ErrorHandler.js";
 import cookieParser from "cookie-parser";
 import UserRouter from "./routes/users.js";
+import { configDotenv } from "dotenv";
 
 app.use(cors());
 app.use(cookieParser());
@@ -22,8 +23,12 @@ process.on("uncaughtException", (e) => {
 });
 
 if (process.env.NODE_ENV == "porduction") {
-  require("dotenv").config({
+  configDotenv({
     path: "/server/config/.env",
+  });
+} else {
+  configDotenv({
+    path: "./.env",
   });
 }
 

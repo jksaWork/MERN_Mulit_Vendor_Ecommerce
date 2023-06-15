@@ -32,9 +32,7 @@ const Register = () => {
     await axios
       .post(`${server}/users/create`, data, config)
       .then((res) => {
-        toast.success("Login Success!");
-        navigate("/");
-        window.location.reload(true);
+        toast.success(res.data.message);
       })
       .catch((err) => {
         toast.error(err.response.data.message);
@@ -54,6 +52,7 @@ const Register = () => {
             initialValues={{
               email: "",
               password: "",
+              fullname: "",
             }}
             validationSchema={RegisterValidator}
             onSubmit={handleSubmit}

@@ -56,6 +56,7 @@ const userSchema = new mongoose.Schema({
   },
   resetPasswordToken: String,
   resetPasswordTime: Date,
+  activated: { type: Boolean, default: false },
 });
 
 //  Hash password
