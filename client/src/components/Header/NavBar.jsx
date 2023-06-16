@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 function NavBar({ active }) {
   return (
     <div>
-      <div class=" md:flex items-center justify-between hidden w-full  md:w-auto md:order-1">
+      <div className="md:flex items-center justify-between hidden w-full  md:w-auto md:order-1">
         {navItems &&
           navItems.map((i, index) => (
-            <div className="flex">
+            <div className="flex" key={i.url + index}>
               <Link
                 to={i.url}
                 className={`${
