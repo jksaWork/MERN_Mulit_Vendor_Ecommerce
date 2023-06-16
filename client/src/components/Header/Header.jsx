@@ -21,7 +21,7 @@ function Header() {
     <>
       <div
         className="
-          grid grid-cols-[300px_1fr_300px]
+          md:grid md:grid-cols-[300px_1fr_300px]
           my-3 px-5 justify-between items-center"
       >
         {/* Logos */}
@@ -34,7 +34,7 @@ function Header() {
           </Link>
         </div>
         {/* Search Bars */}
-        <div className="flex flex-center justify-center">
+        <div className="md:flex hidden flex-center justify-center">
           <div className=" w-[400px] relative flex-3">
             <input
               type="text"
@@ -69,7 +69,7 @@ function Header() {
           </div>
         </div>
         {/* Become Sleere */}
-        <div>
+        <div className="hidden md:block">
           <div className="flex justify-end">
             <span className="rounded-md px-3  cursor-pointer flex gap-2 items-center bg-black py-3 text-xl text-white">
               Become Saller <MdKeyboardArrowRight />
