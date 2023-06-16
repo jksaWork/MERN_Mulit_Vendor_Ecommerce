@@ -9,7 +9,7 @@ import IconsBar from "./IconsBar";
 function Categories() {
   return (
     <div
-      className="w-full bg-main h-[60px]   grid grid-cols-[300px_1fr_300px]
+      className="w-full bg-main h-[60px] hidden  md:grid grid-cols-[300px_1fr_300px]
           justify-start
           pt-3"
     >
