@@ -15,7 +15,7 @@ function Categories() {
     >
       <CategoriesSection />
       <div className="flex justify-center">
-        <NavBar />
+        <NavBar active={2} />
       </div>
 
       <div className="flex justify-center">

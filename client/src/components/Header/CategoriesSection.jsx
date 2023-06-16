@@ -3,6 +3,7 @@ import { MdKeyboardArrowUp, MdFilterList } from "react-icons/md";
 import { categoriesData } from "../../static";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import { BiBorderRadius } from "react-icons/bi";
 
 function CategoriesSection() {
   const [Active, setActive] = useState();
@@ -11,14 +12,12 @@ function CategoriesSection() {
     <div className="container px-10">
       {/* Categoriess Section */}
       <div
+        style={{ borderRadius: "10px 10px 0 0 ", lineHeight: "50px" }}
         className={`
-       relative bg-white w-[250px] cursor-pointer rounded-md min-h-[50px]
+       relative z-[2] bg-white hidden md:block w-[300px] cursor-pointer pt-1  min-h-[50px]
        
        ${Active ? "h-auto shadow-md" : ""}
        `}
-        style={{
-          lineHeight: "50px",
-        }}
         onClick={() => setActive(!Active)}
       >
         <div className="flex justify-around items-center">
