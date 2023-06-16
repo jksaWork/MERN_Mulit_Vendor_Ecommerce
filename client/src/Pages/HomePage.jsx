@@ -4,6 +4,7 @@ function HomePage() {
   return (
     <div>
       <Header />
+      Hello Wolrd
     </div>
   );
 }
