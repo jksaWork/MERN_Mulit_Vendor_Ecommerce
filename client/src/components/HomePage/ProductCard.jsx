@@ -41,7 +41,7 @@ function ProductCard({
             </div>
             <div classsName="text-primary">23 sold</div>
           </div>
-          <div className="absolute top-0 right-5">
+          <div className="absolute top-2  z-[2] right-5">
             <div className="flex flex-col gap-1 cursor-poniter z-[2] ">
               <span>
                 <BiHeart size={30} />

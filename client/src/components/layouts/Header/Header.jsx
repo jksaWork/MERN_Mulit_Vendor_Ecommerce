@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { MdKeyboardArrowRight, MdOutlineSearch } from "react-icons/md";
-import { productData } from "../../static";
+import { productData } from "../../../static";
 import { Link } from "react-router-dom";
 import Categories from "./Categories";
 
-function Header() {
+function Header({ activeHeading }) {
   const [SeachTerm, setSeachTerm] = useState();
   const [searchData, setSearchData] = useState();
   const handelImage = (e) => {
@@ -77,7 +77,7 @@ function Header() {
           </div>
         </div>
       </div>
-      <Categories />
+      <Categories activeHeading={activeHeading} />
     </>
   );
 }

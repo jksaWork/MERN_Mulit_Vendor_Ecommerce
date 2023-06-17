@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdKeyboardArrowUp, MdFilterList } from "react-icons/md";
-import { categoriesData } from "../../static";
+import { categoriesData } from "../../../static";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import { BiBorderRadius } from "react-icons/bi";
@@ -24,7 +24,7 @@ function CategoriesSection() {
           <span>
             <MdFilterList size={30} />
           </span>
-          <span className="text-2xl  font-sans">Categories</span>
+          <span className="text-2xl  font-sans font-[500]">All Categories</span>
           <span
             className={` ${
               !Active ? "rotate-[180deg]" : "mt"

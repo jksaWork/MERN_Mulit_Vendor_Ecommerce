@@ -1,4 +1,13 @@
-import { Login, Register, Activation, HomePage } from "./Pages";
+import {
+  Login,
+  Register,
+  Activation,
+  HomePage,
+  ProductsPage,
+  EventsPage,
+  BestSellingPage,
+  FAQPage,
+} from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -17,5 +26,23 @@ export const router = createBrowserRouter([
   {
     path: "/sing-up",
     element: <Register />,
+  },
+
+  {
+    path: "/products",
+    element: <ProductsPage />,
+  },
+  {
+    path: "/events",
+    element: <EventsPage />,
+  },
+  {
+    path: "/best-selling",
+    element: <BestSellingPage />,
+  },
+
+  {
+    path: "/faq",
+    element: <FAQPage />,
   },
 ]);

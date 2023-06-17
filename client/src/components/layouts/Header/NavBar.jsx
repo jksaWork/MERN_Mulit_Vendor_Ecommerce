@@ -1,7 +1,8 @@
 import React from "react";
-import { navItems } from "../../static";
+import { navItems } from "../../../static";
 import { Link } from "react-router-dom";
 function NavBar({ active }) {
+  console.log(active, "Active Coount");
   return (
     <div>
       <div className="md:flex items-center justify-between hidden w-full  md:w-auto md:order-1">
