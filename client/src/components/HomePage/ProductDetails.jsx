@@ -34,7 +34,7 @@ function ProductDetails({
           {/* Boady */}
           <div className="max-h-[500px] " style={{ overflowY: "scroll" }}>
             <div className="flex justify-center">
-              <div className="w-1/2 px-10">
+              <div className="md:w-1/2 px-10">
                 {/* Image COntainer */}
                 <div>
                   <img src={image_Url[0].url} className="max-w-[300px]" />{" "}
@@ -63,7 +63,9 @@ function ProductDetails({
                 <div className="text-md m-2">{description}</div>
                 <div className="flex justify-start">
                   {/* price */}
-                  <div class="text-2xl font-bold">{price + "$"}</div>
+                  <div class="text-2xl font-bold">
+                    {(price ? price : discount_price) + "$"}
+                  </div>
                   {/* dicount */}
                 </div>
                 <div className="flex justify-between px-3 mt-3 ">

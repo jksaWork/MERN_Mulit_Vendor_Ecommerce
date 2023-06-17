@@ -1,5 +1,13 @@
 import React from "react";
-import { Header, Hero, HomePageCategories } from "../components";
+import {
+  Header,
+  Hero,
+  HomePageCategories,
+  FeaturedProduct,
+  Events,
+  Footer,
+  Sponsored,
+} from "../components";
 import BestDeals from "../components/HomePage/BestDeals";
 function HomePage() {
   return (
@@ -8,6 +16,10 @@ function HomePage() {
       <Hero />
       <HomePageCategories />
       <BestDeals />
+      <FeaturedProduct />
+      <Events />
+      <Sponsored />
+      <Footer />
     </div>
   );
 }
