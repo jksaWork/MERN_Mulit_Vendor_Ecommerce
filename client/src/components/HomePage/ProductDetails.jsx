@@ -14,7 +14,6 @@ function ProductDetails({
     total_sell,
   },
 }) {
-  console.log(image_Url);
   return (
     <div>
       <div className="fixed shadow-md bg-white  top-[50%] left-[50%] z-[2] max-w-[90%] min-w-[80%] min-h-[60vh]  max-h-[95vh] overflow-hidden card translate-x-[-50%]  translate-y-[-50%]">

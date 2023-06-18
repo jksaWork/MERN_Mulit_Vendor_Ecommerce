@@ -1,3 +1,4 @@
+export { default as ProductDetails } from "./ProductDetails/ProductDetails";
 export { default as Events } from "./Events/Events";
 export { default as Header } from "./layouts/Header/Header";
 export { default as Hero } from "./HomePage/Hero";
@@ -9,3 +10,4 @@ export { default as Sponsored } from "./HomePage/Sponsored";
 export { default as ProductCard } from "./HomePage/ProductCard";
 export { default as Loader } from "./layouts/Loader";
 export { default as CartComponent } from "./CartComponent";
+export { default as WishListComponent } from "./WishListComponent";

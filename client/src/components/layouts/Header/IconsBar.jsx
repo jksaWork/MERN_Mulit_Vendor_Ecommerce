@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { BiHeart, BiCartAlt, BiUserCheck } from "react-icons/bi";
-import { CartComponent } from "../../index";
+import { CartComponent, WishListComponent } from "../../index";
+import SingleWhislistItem from "../../WishListComponent/SingleWhislistItem";
 function IconsBar() {
-  const [OpenCard, setOpenCard] = useState(true);
+  const [OpenCard, setOpenCard] = useState(false);
+  const [OpenWhishlist, setOpenWhishlist] = useState(false);
   return (
     <div className="flex gap-5 ">
-      <div className="relative">
+      <div
+        className="relative cursor-pointer"
+        onClick={() => {
+          setOpenWhishlist(true);
+        }}
+      >
         <span
           className="bg-[red] px-1 rounded-2xl absolute top-[-5px] right-[-5px]
         text-white text-xs"
@@ -35,6 +42,9 @@ function IconsBar() {
       </div>
 
       {OpenCard && <CartComponent setOpenCard={setOpenCard} />}
+      {OpenWhishlist && (
+        <WishListComponent setOpenWhishlist={setOpenWhishlist} />
+      )}
     </div>
   );
 }

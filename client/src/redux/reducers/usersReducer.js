@@ -3,6 +3,7 @@ import { createReducer } from "@reduxjs/toolkit";
 const initialState = {
   token: null,
   user: {},
+  isAuthenticated: true,
 };
 export const usersReducer = createReducer(initialState, {
   storeuseruata: (state, action) => {

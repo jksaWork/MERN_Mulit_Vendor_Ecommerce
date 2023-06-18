@@ -6,6 +6,7 @@ import {
   ProductsPage,
   EventsPage,
   BestSellingPage,
+  ProductDetailsPage,
   FAQPage,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
@@ -19,6 +20,7 @@ export const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+
   {
     path: "/activation/:activation_token",
     element: <Activation />,
@@ -44,5 +46,9 @@ export const router = createBrowserRouter([
   {
     path: "/faq",
     element: <FAQPage />,
+  },
+  {
+    path: "product/:name",
+    element: <ProductDetailsPage />,
   },
 ]);

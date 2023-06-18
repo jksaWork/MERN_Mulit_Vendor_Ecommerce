@@ -6,3 +6,4 @@ export { default as ProductsPage } from "./ProductsPage";
 export { default as EventsPage } from "./EventsPage";
 export { default as BestSellingPage } from "./BestSellingPage";
 export { default as FAQPage } from "./FAQPage";
+export { default as ProductDetailsPage } from "./ProductDetailsPage";
