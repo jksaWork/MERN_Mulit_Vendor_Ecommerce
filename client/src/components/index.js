@@ -8,3 +8,4 @@ export { default as Footer } from "./layouts/Footer";
 export { default as Sponsored } from "./HomePage/Sponsored";
 export { default as ProductCard } from "./HomePage/ProductCard";
 export { default as Loader } from "./layouts/Loader";
+export { default as CartComponent } from "./CartComponent";

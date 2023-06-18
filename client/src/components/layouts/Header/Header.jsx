@@ -21,7 +21,8 @@ function Header({ activeHeading }) {
     <>
       <div
         className="
-          md:grid md:grid-cols-[300px_1fr_300px]
+          md:grid xl:grid-cols-[300px_1fr_300px]
+          md:grid-cols-[1fr_1fr]
           my-3 px-5 justify-between items-center"
       >
         {/* Logos */}
@@ -69,7 +70,7 @@ function Header({ activeHeading }) {
           </div>
         </div>
         {/* Become Sleere */}
-        <div className="hidden md:block">
+        <div className="hidden xl:block">
           <div className="flex justify-end">
             <span className="rounded-md px-3  cursor-pointer flex gap-2 items-center bg-black py-3 text-xl text-white">
               Become Saller <MdKeyboardArrowRight />

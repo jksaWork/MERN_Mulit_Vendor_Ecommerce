@@ -12,7 +12,6 @@ function RatingStarts({ starts }) {
         <BiStar size={20} color="yellow" />
       )
     );
-    console.log("Hello Wolrd");
   }
   return <div class="flex gap-1">{...starts_icons}</div>;
 }

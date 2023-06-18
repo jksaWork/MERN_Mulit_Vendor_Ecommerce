@@ -9,12 +9,13 @@ import IconsBar from "./IconsBar";
 function Categories({ activeHeading }) {
   return (
     <div
-      className="w-full bg-main h-[60px] hidden  md:grid grid-cols-[300px_1fr_300px]
+      className="w-full bg-main h-[60px] hidden  md:grid xl:grid-cols-[300px_1fr_300px]
           justify-start
+          md:grid-cols-[1fr_1fr]
           pt-3"
     >
       <CategoriesSection />
-      <div className="flex justify-center">
+      <div className="xl:flex justify-center hidden ">
         <NavBar active={activeHeading} />
       </div>
 
