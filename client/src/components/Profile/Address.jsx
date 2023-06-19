@@ -98,7 +98,7 @@ const Address = () => {
                       {Country &&
                         Country.getAllCountries().map((item) => (
                           <option
-                            className="block pb-2"
+                            className="block pb-2 "
                             key={item.isoCode}
                             value={item.isoCode}
                           >
@@ -219,7 +219,7 @@ const Address = () => {
       {user &&
         addresses.map((item, index) => (
           <div
-            className="w-full bg-white h-min 800px:h-[70px] rounded-[4px] flex items-center px-3 shadow justify-between pr-10 mb-5"
+            className="w-full bg-white p-3 h-min 800px:h-[70px] rounded-[4px] flex items-center px-3 shadow justify-between pr-10 mb-5"
             key={index}
           >
             <div className="flex items-center">

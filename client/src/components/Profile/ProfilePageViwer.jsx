@@ -7,14 +7,17 @@ import {
   Address,
   ChangePassword,
 } from "./../index";
+const InBox = () => <div>Hjsa</div>;
 function ProfilePageViwer({ ActivePage }) {
   const Pages = [
     EditProfile,
     OrdersComponents,
     RefundOrder,
+    InBox,
     TrackOrder,
-    Address,
     ChangePassword,
+    InBox,
+    Address,
   ];
   return (
     <div>

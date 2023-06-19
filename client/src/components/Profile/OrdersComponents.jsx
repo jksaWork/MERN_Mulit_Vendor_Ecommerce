@@ -84,9 +84,9 @@ const OrdersComponents = () => {
   );
 
   return (
-    //     <div className="pt-10 p-4 bg-white shadow-lg">
-    <MaterialReactTable className="p-12" columns={columns} data={data} />
-    //     </div>
+    <div className="pt-10 p-4 bg-white shadow-lg">
+      <MaterialReactTable className="p-12" columns={columns} data={data} />
+    </div>
   );
 };
 

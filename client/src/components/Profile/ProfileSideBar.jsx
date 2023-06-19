@@ -1,12 +1,27 @@
 import React from "react";
 import { settingMenu } from "../../static/settings";
+import { useDispatch } from "react-redux";
+import { userLogOut } from "../../redux/actions/usersAction";
+import { useNavigate, useNavigation } from "react-router-dom";
 
 function ProfileSideBar({ ActivePage, setActivePage }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const HandelPageViewer = (page) => {
+    if (settingMenu[page - 1].name != "logout") return setActivePage(page);
+    dispatch(userLogOut(navigate)).then((el) => {
+      console.log(el);
+    });
+    navigate("/");
+  };
   return (
-    <div className="pt-10 p-4 bg-white shadow-lg  ">
+    <div
+      className="pt-10 p-4 bg-white shadow-lg 
+    "
+    >
       {settingMenu.map((el, i) => (
         <div
-          onClick={() => setActivePage(i + 1)}
+          onClick={() => HandelPageViewer(i + 1)}
           className={`flex items-center p-3 gap-5 mt-2 cursor-pointer ${
             ActivePage == i + 1 ? "text-red-500" : ""
           }`}

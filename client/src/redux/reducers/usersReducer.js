@@ -28,4 +28,10 @@ export const usersReducer = createReducer(initialState, {
     console.log(token, user, "Init App");
     return { ...state, token, user };
   },
+
+  USER_LOG_OUT: (state, action) => {
+    localStorage.removeItem("userdata");
+    console.log("local Cleard");
+    return { ...state, token: null, user: null, isAuthenticated: false };
+  },
 });

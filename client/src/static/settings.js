@@ -45,7 +45,7 @@ export const settingMenu = [
   },
   {
     icon: MdOutlineAddReaction,
-    name: "Adress",
+    name: "Address",
   },
   {
     icon: MdPowerSettingsNew,
