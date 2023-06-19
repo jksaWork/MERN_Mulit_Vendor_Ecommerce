@@ -8,6 +8,7 @@ import {
   MdPersonOutline,
   MdOutlineShop2,
   MdStairs,
+  MdKeyOff,
 } from "react-icons/md";
 
 export const settingMenu = [
@@ -33,6 +34,10 @@ export const settingMenu = [
   {
     icon: MdOutlineTrackChanges,
     name: "track orders",
+  },
+  {
+    icon: MdKeyOff,
+    name: "Change Password",
   },
   {
     icon: MdPivotTableChart,

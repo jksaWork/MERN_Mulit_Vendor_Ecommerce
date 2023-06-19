@@ -1,7 +1,21 @@
 import React from "react";
-import EditProfile from "./EditProfile";
+import {
+  EditProfile,
+  OrdersComponents,
+  TrackOrder,
+  RefundOrder,
+  Address,
+  ChangePassword,
+} from "./../index";
 function ProfilePageViwer({ ActivePage }) {
-  const Pages = [EditProfile];
+  const Pages = [
+    EditProfile,
+    OrdersComponents,
+    RefundOrder,
+    TrackOrder,
+    Address,
+    ChangePassword,
+  ];
   return (
     <div>
       {Pages.map((Page, i) => {

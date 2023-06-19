@@ -8,7 +8,7 @@ import {
 import styles from "../styles";
 
 function ProfilePage() {
-  const [ActivePage, setActivePage] = useState(1);
+  const [ActivePage, setActivePage] = useState(3);
   return (
     <div className="bg-gray-100">
       <Header />

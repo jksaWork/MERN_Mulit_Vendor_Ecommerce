@@ -13,7 +13,7 @@ function ProfileSideBar({ ActivePage, setActivePage }) {
         >
           <el.icon size={25} />
           <div
-            className={`text-xl hidden md:block ${
+            className={`text-xl capitalize font-[400] hidden md:block ${
               ActivePage == i + 1 ? "text-red-500" : ""
             }`}
           >

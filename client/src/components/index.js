@@ -13,3 +13,10 @@ export { default as CartComponent } from "./CartComponent";
 export { default as WishListComponent } from "./WishListComponent";
 export { default as ProfileSideBar } from "./Profile/ProfileSideBar";
 export { default as ProfilePageViwer } from "./Profile/ProfilePageViwer";
+export { default as OrdersComponents } from "./Profile/OrdersComponents";
+export { default as EditProfile } from "./Profile/EditProfile";
+export { default as Address } from "./Profile/Address";
+export { default as TrackOrder } from "./Profile/TrackOrder";
+export { default as RefundOrder } from "./Profile/RefundOrder";
+// useState
+export { default as ChangePassword } from "./Profile/ChangePassword";

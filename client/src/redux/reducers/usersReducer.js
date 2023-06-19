@@ -25,7 +25,7 @@ export const usersReducer = createReducer(initialState, {
   },
   INIT_APP: (state, action) => {
     const { token, user } = JSON.parse(localStorage.getItem("userdata"));
-    //     console.log(token, user);
+    console.log(token, user, "Init App");
     return { ...state, token, user };
   },
 });
