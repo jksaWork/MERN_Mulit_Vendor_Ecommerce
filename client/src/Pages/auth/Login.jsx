@@ -31,7 +31,6 @@ const Login = () => {
         window.location.reload(true);
       })
       .catch((err) => {
-        console.log(err);
         toast.error("invalid Credintals");
       });
   };

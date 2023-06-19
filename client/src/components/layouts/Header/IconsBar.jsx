@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import { BiHeart, BiCartAlt, BiUserCheck } from "react-icons/bi";
 import { CartComponent, WishListComponent } from "../../index";
 import SingleWhislistItem from "../../WishListComponent/SingleWhislistItem";
+import { useSelector } from "react-redux";
+import { FaUserCog } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { server } from "../../../static";
 function IconsBar() {
   const [OpenCard, setOpenCard] = useState(false);
   const [OpenWhishlist, setOpenWhishlist] = useState(false);
+  const { isAuthenticated, user } = useSelector((store) => store.usersReducer);
+  console.log(user);
   return (
     <div className="flex gap-5 ">
       <div
@@ -37,9 +43,21 @@ function IconsBar() {
           <BiCartAlt size={30} color="#fff" />
         </div>
       </div>
-      <div className="relative">
-        <BiUserCheck size={30} color="#fff" />
-      </div>
+      <Link
+        className="relative"
+        to={`${isAuthenticated ? "/profile" : "/login"}`}
+      >
+        {isAuthenticated ? (
+          <div>
+            <img
+              src={`${server.replace("/api", "")}/${user.avatar}`}
+              className="w-[30px] h-[30px] rounded-full"
+            />
+          </div>
+        ) : (
+          <FaUserCog size={30} color="#fff" />
+        )}
+      </Link>
 
       {OpenCard && <CartComponent setOpenCard={setOpenCard} />}
       {OpenWhishlist && (

@@ -11,3 +11,5 @@ export { default as ProductCard } from "./HomePage/ProductCard";
 export { default as Loader } from "./layouts/Loader";
 export { default as CartComponent } from "./CartComponent";
 export { default as WishListComponent } from "./WishListComponent";
+export { default as ProfileSideBar } from "./Profile/ProfileSideBar";
+export { default as ProfilePageViwer } from "./Profile/ProfilePageViwer";

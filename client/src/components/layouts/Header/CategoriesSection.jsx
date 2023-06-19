@@ -9,7 +9,7 @@ function CategoriesSection() {
   const [Active, setActive] = useState();
 
   return (
-    <div className="container px-10">
+    <div className="container">
       {/* Categoriess Section */}
       <div
         style={{ borderRadius: "10px 10px 0 0 ", lineHeight: "50px" }}
@@ -36,7 +36,6 @@ function CategoriesSection() {
         {Active &&
           categoriesData.map((el, index) => {
             let product_name = el.title.replace(/s+/, "-");
-            console.log(el);
             return (
               <Link
                 key={el.id + Math.random() + index}

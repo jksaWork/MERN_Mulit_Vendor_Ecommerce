@@ -1,10 +1,12 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { INIT_APP } from "../actions";
 
 const initialState = {
   token: null,
   user: {},
   isAuthenticated: true,
 };
+
 export const usersReducer = createReducer(initialState, {
   storeuseruata: (state, action) => {
     console.log(action);
@@ -21,5 +23,9 @@ export const usersReducer = createReducer(initialState, {
 
     return state;
   },
-  decrement: (state, action) => state - action.payload,
+  INIT_APP: (state, action) => {
+    const { token, user } = JSON.parse(localStorage.getItem("userdata"));
+    //     console.log(token, user);
+    return { ...state, token, user };
+  },
 });

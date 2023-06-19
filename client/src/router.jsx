@@ -8,6 +8,7 @@ import {
   BestSellingPage,
   ProductDetailsPage,
   FAQPage,
+  ProfilePage,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -50,5 +51,9 @@ export const router = createBrowserRouter([
   {
     path: "product/:name",
     element: <ProductDetailsPage />,
+  },
+  {
+    path: "profile",
+    element: <ProfilePage />,
   },
 ]);
