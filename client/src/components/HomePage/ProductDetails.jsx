@@ -62,26 +62,26 @@ function ProductDetails({
                 <div className="text-md m-2">{description}</div>
                 <div className="flex justify-start">
                   {/* price */}
-                  <div class="text-2xl font-bold">
+                  <div className="text-2xl font-bold">
                     {(price ? price : discount_price) + "$"}
                   </div>
                   {/* dicount */}
                 </div>
                 <div className="flex justify-between px-3 mt-3 ">
-                  <span class="flex flex-center max-w-[100px]">
+                  <span className="flex flex-center max-w-[100px]">
                     <span className="span bg-main p-2 px-4 rounded-sm text-white">
                       +
                     </span>
 
                     <input
                       type="text"
-                      class="w-[30px] text-black p-3 bg-gray"
+                      className="w-[30px] text-black p-3 bg-gray"
                     />
                     <span className="span bg-main p-2 px-4 rounded-sm text-white">
                       -
                     </span>
                   </span>
-                  <span class="cursor-pointer">
+                  <span className="cursor-pointer">
                     <BiHeart size={30} />
                   </span>
                 </div>

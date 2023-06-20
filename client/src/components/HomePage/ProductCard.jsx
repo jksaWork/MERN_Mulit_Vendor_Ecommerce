@@ -34,11 +34,11 @@ function ProductCard({
           </p>
           <div className="flex justify-between">
             <div className="flex flex-start gap-1">
-              <div class="font-bold text-xl ">
+              <div className="font-bold text-xl ">
                 {discount_price != 0 ? discount_price : price} $
               </div>
               {discount_price != 0 && (
-                <div class="font-bold text-sm  line-through text-[red]">
+                <div className="font-bold text-sm  line-through text-[red]">
                   $ {price}
                 </div>
               )}

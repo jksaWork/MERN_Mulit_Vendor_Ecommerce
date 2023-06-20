@@ -9,7 +9,7 @@ import styles from "../../../styles";
 
 function Categories({ activeHeading }) {
   return (
-    <div className="w-full bg-main h-[60px]">
+    <div className="w-full bg-main h-[60px] hidden md:block">
       {" "}
       <div
         className={`${styles.section} hidden  md:grid xl:grid-cols-[300px_1fr_300px]

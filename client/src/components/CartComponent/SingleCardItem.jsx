@@ -51,7 +51,7 @@ const SingleCardItem = ({
             {name.length < 50 ? name : name.slice(0, 30) + "..."}
           </h2>
           <div className="bold">
-            <span class="text-[red]">{Value} </span> *{" "}
+            <span className="text-[red]">{Value} </span> *{" "}
             {price ? price : discount_price}
             {" $"} ={cartprice ? cartprice : discount_price * Value} {"$"}
           </div>

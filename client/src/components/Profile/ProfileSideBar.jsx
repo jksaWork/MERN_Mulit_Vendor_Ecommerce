@@ -12,7 +12,6 @@ function ProfileSideBar({ ActivePage, setActivePage }) {
     dispatch(userLogOut(navigate)).then((el) => {
       console.log(el);
     });
-    navigate("/");
   };
   return (
     <div
@@ -22,7 +21,7 @@ function ProfileSideBar({ ActivePage, setActivePage }) {
       {settingMenu.map((el, i) => (
         <div
           onClick={() => HandelPageViewer(i + 1)}
-          className={`flex items-center p-3 gap-5 mt-2 cursor-pointer ${
+          className={`flex items-center p-2 gap-5 mt-1 cursor-pointer ${
             ActivePage == i + 1 ? "text-red-500" : ""
           }`}
         >

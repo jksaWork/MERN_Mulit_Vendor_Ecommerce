@@ -13,7 +13,7 @@ function RatingStarts({ starts }) {
       )
     );
   }
-  return <div class="flex gap-1">{...starts_icons}</div>;
+  return <div className="flex gap-1">{...starts_icons}</div>;
 }
 
 export default RatingStarts;

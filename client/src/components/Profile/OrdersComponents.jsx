@@ -84,7 +84,7 @@ const OrdersComponents = () => {
   );
 
   return (
-    <div className="pt-10 p-4 bg-white shadow-lg">
+    <div className="pt-10 p-4 bg-white shadow-lg max-w-[80%] overflow-hidden">
       <MaterialReactTable className="p-12" columns={columns} data={data} />
     </div>
   );

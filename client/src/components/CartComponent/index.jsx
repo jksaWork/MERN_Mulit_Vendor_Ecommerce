@@ -46,7 +46,7 @@ function CartComponent({ setOpenCard }) {
           {/* Hello World */}
         </div>
 
-        <div class="px-2">
+        <div className="px-2">
           <button className="bg-[red] p-2  w-full capitalize text-xl text-white">
             {/* Hi */}
             Check Now{" "}

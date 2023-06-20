@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 function CountDown() {
   useEffect(() => {
     let counter = 48;
-    setInterval(() => {
+    let conterInterval = setInterval(() => {
       if (counter > 0) {
         counter--;
       }
@@ -11,6 +11,8 @@ function CountDown() {
         .getElementById("counterElement")
         .style.setProperty("--value", counter);
     }, 1000);
+
+    return () => clearInterval(conterInterval);
   });
   return (
     <div className="grid grid-flow-col gap-5 text-center auto-cols-max">

@@ -6,11 +6,11 @@ import { useSelector } from "react-redux";
 import { FaUserCog } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { server } from "../../../static";
+import { AiOutlineUser } from "react-icons/ai";
 function IconsBar() {
   const [OpenCard, setOpenCard] = useState(false);
   const [OpenWhishlist, setOpenWhishlist] = useState(false);
   const { isAuthenticated, user } = useSelector((store) => store.usersReducer);
-  console.log(user);
   return (
     <div className="flex gap-5 ">
       <div
@@ -55,7 +55,7 @@ function IconsBar() {
             />
           </div>
         ) : (
-          <FaUserCog size={30} color="#fff" />
+          <AiOutlineUser size={30} color="#fff" />
         )}
       </Link>
 

@@ -4,7 +4,7 @@ import { INIT_APP } from "../actions";
 const initialState = {
   token: null,
   user: {},
-  isAuthenticated: true,
+  isAuthenticated: null,
 };
 
 export const usersReducer = createReducer(initialState, {
@@ -24,9 +24,13 @@ export const usersReducer = createReducer(initialState, {
     return state;
   },
   INIT_APP: (state, action) => {
-    const { token, user } = JSON.parse(localStorage.getItem("userdata"));
-    console.log(token, user, "Init App");
-    return { ...state, token, user };
+    const user = JSON.parse(localStorage.getItem("userdata"));
+    if (user) {
+      const { token, user } = user;
+      console.log(token, user, "Init App");
+      return { ...state, token, user };
+    }
+    return { ...state, token: null, user: null };
   },
 
   USER_LOG_OUT: (state, action) => {
