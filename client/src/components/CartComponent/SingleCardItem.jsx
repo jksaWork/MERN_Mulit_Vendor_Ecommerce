@@ -14,10 +14,8 @@ const SingleCardItem = ({
   item,
   item: { price, name, image, discount_price },
 }) => {
-  console.log(RemoveFromCart);
   const [Value, setValue] = useState(1);
   const cartprice = price * Value;
-  console.log(image, item, "Items Center ");
   return (
     <div className="p-2 border-b-2 items-center grid grid-cols-[50px_1fr_30px]  justify-between">
       <div className="flex flex-col gap-2 px-2">

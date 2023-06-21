@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 function MobileSideBar({ setOpenNav }) {
   const { isAuthenticated } = useSelector((s) => s.usersReducer);
-  console.log(isAuthenticated, "isAuthenticated");
   return (
     <div className="bg-black flex justify-start  z-[10] bg-opacity-60 fixed top-0 left-0 w-full h-screen">
       {/* Heelo Wolrd */}

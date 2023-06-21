@@ -11,7 +11,6 @@ function MobilePages({ active, setOpenNav }) {
             <div className="flex" key={i.url + index}>
               <Link
                 onClick={() => {
-                  console.log("Hello", "From Side Bar");
                   navigate(i.url);
                   setOpenNav(false);
                 }}

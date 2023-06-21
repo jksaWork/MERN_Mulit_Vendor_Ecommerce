@@ -10,7 +10,7 @@ import verifed_worng from "../../assets/verifed_worng.svg";
 import { HashLoader } from "react-spinners";
 import { useDispatch } from "react-redux";
 import { StoreUser } from "../../redux/actions/usersAction";
-const Activation = () => {
+const SallerActivation = () => {
   const { activation_token } = useParams();
   const [AcountActivated, setAcountActivated] = useState(null);
   const dispactch = useDispatch();
@@ -19,7 +19,7 @@ const Activation = () => {
     if (activation_token) {
       const token = activation_token.replaceAll("-", ".");
       axios
-        .get(`${server}/users/activation/${token}`)
+        .get(`${server}/users/sallers/activation/${token}`)
         .then((res) => {
           setAcountActivated(true);
           toast.success(res.data.message);
@@ -55,4 +55,4 @@ const Activation = () => {
   );
 };
 
-export default Activation;
+export default SallerActivation;

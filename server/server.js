@@ -1,6 +1,6 @@
 const { default: ErrorHandler } = require("./utils/ErrorHandler");
 
-require("./app");
+require(".");
 console.log("hello World");
 // Error Handler
 app.use(ErrorHandler);

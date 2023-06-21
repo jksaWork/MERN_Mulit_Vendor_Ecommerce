@@ -55,7 +55,7 @@ function ProductCard({
               </span>
 
               <span
-                class="cursor-pointer"
+                className="cursor-pointer"
                 onClick={() => setOpenDetailsModal(!OpenDetailsModal)}
               >
                 <MdRemoveRedEye size={30} />

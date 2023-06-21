@@ -9,8 +9,6 @@ import MobileHeader from "./MobileHeader";
 import SerachComponent from "./SerachComponent";
 
 function Header({ activeHeading }) {
-  const [SeachTerm, setSeachTerm] = useState();
-
   return (
     <>
       <div
@@ -32,9 +30,12 @@ function Header({ activeHeading }) {
         {/* Become Sleere */}
         <div className="hidden xl:block">
           <div className="flex justify-end">
-            <span className="rounded-md px-3  cursor-pointer flex gap-2 items-center bg-black py-3 text-xl text-white">
+            <Link
+              to="/create-shop"
+              className="rounded-md px-3  cursor-pointer flex gap-2 items-center bg-black py-3 text-xl text-white"
+            >
               Become Saller <MdKeyboardArrowRight />
-            </span>
+            </Link>
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ import MobileSideBar from "./MobileSideBar";
 const MobileHeader = () => {
   // const { , setOpenNav } = useState(false); // Side Bar Tiger
   const [OpenNav, setOpenNav] = useState(false);
-  console.log(OpenNav, "OpenNav");
   return (
     <div className="flex justify-between md:justify-start md:gap-4">
       <span

@@ -9,6 +9,8 @@ import {
   ProductDetailsPage,
   FAQPage,
   ProfilePage,
+  SallerActivation,
+  CreateSaller,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -25,6 +27,10 @@ export const router = createBrowserRouter([
   {
     path: "/activation/:activation_token",
     element: <Activation />,
+  },
+  {
+    path: "/saller/activation/:activation_token",
+    element: <SallerActivation />,
   },
   {
     path: "/sing-up",
@@ -55,5 +61,9 @@ export const router = createBrowserRouter([
   {
     path: "profile",
     element: <ProfilePage />,
+  },
+  {
+    path: "create-shop",
+    element: <CreateSaller />,
   },
 ]);

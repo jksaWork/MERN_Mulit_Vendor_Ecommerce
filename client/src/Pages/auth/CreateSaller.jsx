@@ -9,7 +9,7 @@ import { RegisterValidator } from "../../static/validator";
 import CustomFiled from "../../components/CustomFiled";
 import { RxAvatar } from "react-icons/rx";
 import { server } from "../../static/index";
-const Register = () => {
+const CreateSaller = () => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
   const [Avatar, setAvatar] = useState();
@@ -18,32 +18,34 @@ const Register = () => {
   };
 
   const handleSubmit = async (values) => {
-    const { password, fullname, email } = values;
+    const { password, fullname, zipCode, address, phoneNumber, email } = values;
     const data = new FormData();
     data.append("file", Avatar);
     data.append("password", password);
     data.append("email", email);
-    data.append("fullname", fullname);
+    data.append("name", fullname);
+    data.append("zipCode", zipCode);
+    data.append("phoneNumber", phoneNumber);
+    data.append("address", address);
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
     };
 
     await axios
-      .post(`${server}/users/create`, data, config)
+      .post(`${server}/users/create-saller`, data, config)
       .then((res) => {
         toast.success(res.data.message);
       })
       .catch((err) => {
-        console.log(err);
-        toast.error("Some Thing Went Worng Pleace Try Again");
+        toast.error(err.response.data.message);
       });
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="sm:mx-auto sm:w-full sm:max-w-xd">
         <h2 className="mt-6 text-center capitalize text-3xl font-extrabold text-gray-900">
-          Register As New User
+          Creat New Shop
         </h2>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -71,12 +73,44 @@ const Register = () => {
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                       />
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-1">
                       <Field
                         lable="Email address"
                         type="email"
                         name="email"
                         autoComplete="email"
+                        required
+                        component={CustomFiled}
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      />
+                    </div>
+
+                    <div className="mt-1">
+                      <Field
+                        lable="phone Number"
+                        type="text"
+                        name="phoneNumber"
+                        autoComplete="email"
+                        required
+                        component={CustomFiled}
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      />
+                    </div>
+                    <div className="mt-1">
+                      <Field
+                        lable="Zip Code"
+                        type="text"
+                        name="zipCode"
+                        required
+                        component={CustomFiled}
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      />
+                    </div>
+                    <div className="mt-1">
+                      <Field
+                        lable="Address "
+                        type="text"
+                        name="address"
                         required
                         component={CustomFiled}
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
@@ -164,4 +198,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default CreateSaller;

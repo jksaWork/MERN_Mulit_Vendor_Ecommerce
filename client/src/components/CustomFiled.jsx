@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function CustomFiled({ field, form: { errors, touched }, ...props }) {
   const [dirty, setDirty] = useState(false);
-  // console.log(errors, touched);
+
   // const dirty;
   const { onChange, name } = field;
   const { lable, className } = props;
