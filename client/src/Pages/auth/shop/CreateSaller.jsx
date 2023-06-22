@@ -1,14 +1,14 @@
 import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import styles from "../../styles";
+import styles from "../../../styles";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Formik, Form, Field } from "formik";
-import { RegisterValidator } from "../../static/validator";
-import CustomFiled from "../../components/CustomFiled";
+import { RegisterValidator } from "../../../static/validator";
+import CustomFiled from "../../../components/CustomFiled";
 import { RxAvatar } from "react-icons/rx";
-import { server } from "../../static/index";
+import { server } from "../../../static/index";
 const CreateSaller = () => {
   const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
@@ -34,9 +34,11 @@ const CreateSaller = () => {
     await axios
       .post(`${server}/users/create-saller`, data, config)
       .then((res) => {
+        console.log(res.status);
         toast.success(res.data.message);
       })
       .catch((err) => {
+        toast.error("Some Thing Went Worng Try Again");
         toast.error(err.response.data.message);
       });
   };
@@ -184,7 +186,7 @@ const CreateSaller = () => {
                   </div>
                   <div className={`${styles.noramlFlex} w-full`}>
                     <h4>Already have account?</h4>
-                    <Link to="/login" className="text-blue-600 pl-2">
+                    <Link to="/shop/login" className="text-blue-600 pl-2">
                       Login
                     </Link>
                   </div>

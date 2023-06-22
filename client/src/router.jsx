@@ -11,6 +11,7 @@ import {
   ProfilePage,
   SallerActivation,
   CreateSaller,
+  SallerLogin,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/shop/login",
+    element: <SallerLogin />,
   },
 
   {

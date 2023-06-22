@@ -4,12 +4,13 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { RxAvatar } from "react-icons/rx";
-import { server } from "../../static/index";
-import verfied from "../../assets/verfied.svg";
-import verifed_worng from "../../assets/verifed_worng.svg";
+// import { server } from "../../../../static/index";
+import verfied from "../../../assets/verfied.svg";
+import verifed_worng from "../../../assets/verifed_worng.svg";
 import { HashLoader } from "react-spinners";
 import { useDispatch } from "react-redux";
-import { StoreUser } from "../../redux/actions/usersAction";
+import { StoreUser } from "../../../redux/actions/usersAction";
+import { server } from "../../../static";
 const SallerActivation = () => {
   const { activation_token } = useParams();
   const [AcountActivated, setAcountActivated] = useState(null);

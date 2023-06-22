@@ -23,7 +23,7 @@ const Activation = () => {
         .then((res) => {
           setAcountActivated(true);
           toast.success(res.data.message);
-          dispactch(StoreUser(res.data, navigate));
+          dispactch(StoreShop(res.data, navigate));
         })
         .catch((err) => {
           setAcountActivated(false);

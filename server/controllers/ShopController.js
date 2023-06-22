@@ -75,23 +75,29 @@ const createActivationToken = (user) => {
   });
 };
 
-export const UserLogin = async (req, res, next) => {
+export const ShopLogin = async (req, res, next) => {
   console.log("Hello World");
   const { email, password } = req.body;
+  console.log({ email, password });
   if (!email || !password)
     return next(new ErrorHandler("Please Provide All Filed"));
-  const user = await User.findOne({ email }).select("+password");
-  if (!user) {
+  const shop = await Shop.findOne({ email }).select("+password");
+  console.log(shop);
+  if (!shop) {
     return next(new ErrorHandler("No Such User With This Credtioal"));
   }
   // Check IS PassWord IS Valid
-  const passwordIsValid = user.comparePassword(password);
+  const passwordIsValid = shop.comparePassword(password);
   if (!passwordIsValid)
     next(new ErrorHandler("No Such User With This Credtioal"));
-  const token = user.getJwtToken();
-  return res.json({ message: "Your Account Activated Seccfuly", token, user });
+  const token = shop.getJwtToken();
+  return res.json({
+    message: "Your Account Activated Seccfuly",
+    shop_token: token,
+    shop,
+  });
 };
 
 export const getUser = (req, res) => {
-  res.json({ status: true, user: req.user });
+  res.json({ status: true, shop: req.user });
 };

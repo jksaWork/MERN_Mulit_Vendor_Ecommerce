@@ -5,6 +5,7 @@ const initialState = {
   token: null,
   user: {},
   isAuthenticated: null,
+  shop: {},
 };
 
 export const usersReducer = createReducer(initialState, {
@@ -33,6 +34,21 @@ export const usersReducer = createReducer(initialState, {
     return { ...state, token: null, user: null };
   },
 
+  STORE_SHOP_DATA: (state, action) => {
+    console.log(action);
+    console.log("userdata - ------", action);
+    state.token = action.payload.token;
+    state.shop = action.payload.shop;
+    localStorage.setItem(
+      "userdata",
+      JSON.stringify({
+        token: action.payload.token,
+        shop: action.payload.shop,
+      })
+    );
+
+    return state;
+  },
   USER_LOG_OUT: (state, action) => {
     localStorage.removeItem("userdata");
     console.log("local Cleard");

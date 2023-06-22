@@ -8,7 +8,11 @@ import {
 const router = express.Router();
 import upload from "../middleware/multer.js";
 import { Auth } from "../middleware/auth.js";
-import { creatShop, ActivateShop } from "../controllers/ShopController.js";
+import {
+  creatShop,
+  ActivateShop,
+  ShopLogin,
+} from "../controllers/ShopController.js";
 
 // routes
 router.post("/create", upload.single("file"), creatUser);
@@ -21,5 +25,7 @@ router.get("/", (_, res) => {
   res.send("Hello World");
 });
 router.post("/login", UserLogin);
+
+router.post("/shop/login", ShopLogin);
 
 export default router;

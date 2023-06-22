@@ -1,13 +1,18 @@
 import axios from "axios";
 import { server } from "../../static";
 import { API } from "../../utils/fetcher.js";
-import { USER_LOG_OUT } from ".";
+import { USER_LOG_OUT, STORE_SHOP_DATA } from ".";
 export const StoreUser = (data, navigate) => async (dispatch) => {
   console.log(data);
   dispatch({ type: "storeuseruata", payload: data });
   navigate("/");
 };
 
+export const StoreShop = () => (data, navigate) => async (dispatch) => {
+  console.log(data);
+  dispatch({ type: STORE_SHOP_DATA, payload: data });
+  navigate("/");
+};
 export const getUserData = () => async (dispatch) => {
   const { data } = await API.get(`${server}/users/getUser`);
   //   dispatch({ type: "storeuseruata", payload: data });
