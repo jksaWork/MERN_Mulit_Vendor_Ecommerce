@@ -13,6 +13,7 @@ import {
   CreateSaller,
   SallerLogin,
   Dashboard,
+  ShowShop,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -75,5 +76,9 @@ export const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <Dashboard />,
+  },
+  {
+    path: "/shop/:id",
+    element: <ShowShop />,
   },
 ]);

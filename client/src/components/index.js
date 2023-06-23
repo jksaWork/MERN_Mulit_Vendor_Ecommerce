@@ -20,3 +20,5 @@ export { default as TrackOrder } from "./Profile/TrackOrder";
 export { default as RefundOrder } from "./Profile/RefundOrder";
 // useState
 export { default as ChangePassword } from "./Profile/ChangePassword";
+export { default as ShopInfo } from "./Shop/ShopInfo";
+export { default as ShopProductAndEvents } from "./Shop/ShopProductAndEvents";

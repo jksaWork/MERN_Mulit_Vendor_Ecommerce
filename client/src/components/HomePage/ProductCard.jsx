@@ -23,7 +23,9 @@ function ProductCard({
           </Link>
         </figure>
         <div className="card-body">
-          <h3 className="text-blue font-bold capitalize">{shop.name}</h3>
+          <Link to={"/shop/6494949cf5c1d7bd934e7334"}>
+            <h3 className="text-blue font-bold capitalize">{shop.name}</h3>
+          </Link>
           <h2 className="card-title">
             <Link to={`/product/${name.replaceAll(" ", "-")}`}>
               {name.length < 50 ? name : name.slice(0, 50) + "..."}
