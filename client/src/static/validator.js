@@ -29,7 +29,7 @@ export const RegisterValidator = Yup.object().shape({
 });
 
 export const ProductValidation = Yup.object().shape({
-  title: Yup.string()
+  name: Yup.string()
     .min(2, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),

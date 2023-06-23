@@ -1,6 +1,6 @@
 import axios from "axios";
 import { server } from "../../static";
-import { API } from "../../utils/fetcher.js";
+import { API } from "../../utils/APIs/fetcher.js";
 import { USER_LOG_OUT, STORE_SHOP_DATA } from ".";
 export const StoreUser = (data, navigate) => async (dispatch) => {
   console.log(data);

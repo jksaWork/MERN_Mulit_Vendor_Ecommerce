@@ -5,13 +5,21 @@ import { Productlinks } from "../../static";
 import { Formik, Field, Form } from "formik";
 import { ProductValidation } from "../../static/validator";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { CreateProductAction } from "../../redux/actions/ProductsAction";
 // import  from "../../components/CustomFiled";
 function CreateproductPage() {
   const [images, setImages] = useState();
+  const dispatch = useDispatch();
+  const {
+    shop: { _id },
+  } = useSelector((s) => s.shop);
+  console.log(_id);
 
   const SaveProduct = (values) => {
-    alert("Hello World");
+    values.images = images;
     console.log(values);
+    dispatch(CreateProductAction(values));
   };
   const handleFileInputChange = (e) => {
     //     setImages(e.target.files);
@@ -34,12 +42,13 @@ function CreateproductPage() {
         <div className="bg-white py-8 px-4  sm:rounded-lg sm:px-10">
           <Formik
             initialValues={{
-              title: "",
+              name: "",
               category: "",
               description: "",
               originalPrice: "",
               discountPrice: "",
               stock: "",
+              shopId: _id,
             }}
             validationSchema={ProductValidation}
             onSubmit={SaveProduct}
@@ -50,9 +59,9 @@ function CreateproductPage() {
                   <div className="grid md:grid-cols-2 gap-3">
                     <div className="mt-1">
                       <Field
-                        lable="title"
+                        lable="name"
                         type="text"
-                        name="title"
+                        name="name"
                         required
                         component={CustomFiled}
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"

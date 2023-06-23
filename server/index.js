@@ -9,6 +9,8 @@ import connnect from "./database/index.js";
 import ErrorHandler from "./utils/ErrorHandler.js";
 import cookieParser from "cookie-parser";
 import UserRouter from "./routes/users.js";
+import ProductRouter from "./routes/products.js";
+
 import { configDotenv } from "dotenv";
 
 app.use(cors());
@@ -35,6 +37,7 @@ if (process.env.NODE_ENV == "porduction") {
 connnect();
 // app.use(ErrorHandler);
 app.use("/api/users", UserRouter);
+app.use("/api/products", ProductRouter);
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   console.log(`App Is Runing in port  http://127.0.0.1:${port}`);
