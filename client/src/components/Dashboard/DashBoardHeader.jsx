@@ -8,7 +8,7 @@ function DashBoardHeader() {
   const { shop } = useSelector((s) => s.shop);
   // console.log(shop);
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center sticky">
       {/* Hello World 2 */}
       <div className="shadow-lg flex w-full h-[70px] items-center gap-4  justify-end px-3">
         <span className="cursor-pointer">

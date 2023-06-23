@@ -14,6 +14,7 @@ import {
   SallerLogin,
   Dashboard,
   ShowShop,
+  CreateproductPage,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -80,5 +81,9 @@ export const router = createBrowserRouter([
   {
     path: "/shop/:id",
     element: <ShowShop />,
+  },
+  {
+    path: "/dashboard/product/create",
+    element: <CreateproductPage />,
   },
 ]);

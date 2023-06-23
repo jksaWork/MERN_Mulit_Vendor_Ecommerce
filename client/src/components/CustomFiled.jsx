@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function CustomFiled({ field, form: { errors, touched }, ...props }) {
   const [dirty, setDirty] = useState(false);
-
+  console.log(errors);
   // const dirty;
   const { onChange, name } = field;
   const { lable, className } = props;
@@ -15,7 +15,7 @@ function CustomFiled({ field, form: { errors, touched }, ...props }) {
       <div className="relative w-full  group ">
         <label
           htmlFor={lable}
-          className="block text-sm font-medium text-gray-700"
+          className="block text-sm font-medium text-gray-700 capitalize"
         >
           {"  "}
           {props.lable + " :"}

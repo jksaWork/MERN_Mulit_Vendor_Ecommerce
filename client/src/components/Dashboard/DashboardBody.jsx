@@ -1,11 +1,11 @@
 import React from "react";
 import DashBoardHeader from "./DashBoardHeader";
 
-function DashboardBody() {
+function DashboardBody({ children }) {
   return (
-    <div class="h-screen">
+    <div className="h-screen relative" style={{ overflowY: "scroll" }}>
       <DashBoardHeader />
-      <div className="bg-gray-100 h-screen"></div>
+      <div className="bg-gray-100  p-4">{children}</div>
     </div>
   );
 }

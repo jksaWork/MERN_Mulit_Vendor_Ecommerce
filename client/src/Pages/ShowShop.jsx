@@ -15,7 +15,7 @@ function ShowShop() {
   return (
     <div className="bg-[#f5f5f5] h-screen">
       <div className={`${styles.section} pt-3`}>
-        <div class="w-full md:grid gap-4 grid-cols-[400px_1fr]">
+        <div className="w-full md:grid gap-4 grid-cols-[400px_1fr]">
           <ShopInfo shop={shop} />
           <ShopProductAndEvents />
         </div>

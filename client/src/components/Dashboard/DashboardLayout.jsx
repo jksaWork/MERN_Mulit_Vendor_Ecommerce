@@ -6,10 +6,9 @@ function DashboardLayout({ children }) {
     <div>
       <div className="grid grid-cols-[300px_1fr] justify-start">
         <DasahBoardSideBar />
-        <DashboardBody />
+        <DashboardBody children={children} />
         {/* < /> */}
       </div>
-      {children}
     </div>
   );
 }

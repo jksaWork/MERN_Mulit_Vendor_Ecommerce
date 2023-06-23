@@ -13,3 +13,4 @@ export { default as CreateSaller } from "./auth/shop/CreateSaller";
 export { default as SallerLogin } from "./auth/shop/SallerLogin";
 export { default as Dashboard } from "./Dashboard";
 export { default as ShowShop } from "./ShowShop";
+export { default as CreateproductPage } from "./Dashboard/CreateproductPage";
