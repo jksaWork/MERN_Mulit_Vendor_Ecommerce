@@ -8,31 +8,21 @@ import { Formik, Form, Field } from "formik";
 import { LoginValidator } from "../../../static/validator";
 import CustomFiled from "../../../components/CustomFiled";
 import { server } from "../../../static/index";
+import { useDispatch } from "react-redux";
+import { StoreShopData } from "../../../redux/actions/ShopAction";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = async (values) => {
-    const { email, password } = values;
-    await axios
-      .post(
-        `${server}/users/shop/login`,
-        {
-          email,
-          password,
-        }
-        // { withCredentials: true }
-      )
-      .then((res) => {
-        toast.success("Login Success!");
-        navigate("/");
-        window.location.reload(true);
-      })
-      .catch((err) => {
-        toast.error("invalid Credintals");
-      });
+    try {
+      dispatch(StoreShopData(values, navigate));
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (

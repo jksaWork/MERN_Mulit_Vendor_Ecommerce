@@ -12,6 +12,7 @@ import {
   SallerActivation,
   CreateSaller,
   SallerLogin,
+  Dashboard,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -70,5 +71,9 @@ export const router = createBrowserRouter([
   {
     path: "create-shop",
     element: <CreateSaller />,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />,
   },
 ]);

@@ -25,10 +25,9 @@ export const usersReducer = createReducer(initialState, {
     return state;
   },
   INIT_APP: (state, action) => {
-    const user = JSON.parse(localStorage.getItem("userdata"));
-    if (user) {
-      const { token, user } = user;
-      console.log(token, user, "Init App");
+    const user_data = JSON.parse(localStorage.getItem("userdata"));
+    if (user_data) {
+      const { token, user } = user_data;
       return { ...state, token, user };
     }
     return { ...state, token: null, user: null };
@@ -37,12 +36,12 @@ export const usersReducer = createReducer(initialState, {
   STORE_SHOP_DATA: (state, action) => {
     console.log(action);
     console.log("userdata - ------", action);
-    state.token = action.payload.token;
+    state.token = action.payload.shop_token;
     state.shop = action.payload.shop;
     localStorage.setItem(
       "userdata",
       JSON.stringify({
-        token: action.payload.token,
+        token: action.payload.shop_token,
         shop: action.payload.shop,
       })
     );

@@ -8,11 +8,6 @@ export const StoreUser = (data, navigate) => async (dispatch) => {
   navigate("/");
 };
 
-export const StoreShop = () => (data, navigate) => async (dispatch) => {
-  console.log(data);
-  dispatch({ type: STORE_SHOP_DATA, payload: data });
-  navigate("/");
-};
 export const getUserData = () => async (dispatch) => {
   const { data } = await API.get(`${server}/users/getUser`);
   //   dispatch({ type: "storeuseruata", payload: data });
