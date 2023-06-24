@@ -4,28 +4,52 @@ import { DashboardLayout } from "../../components/Dashboard";
 import { Breadcrumbs, Loader } from "../../components";
 import { Productlinks } from "../../static";
 import { useEffect } from "react";
-import { getAllProductsActions } from "../../redux/actions/ProductsAction";
+// import { getAllProductsActions,  } from "../../redux/actions/ProductsAction";
 import { toast } from "react-toastify";
 import { useMemo } from "react";
 import { MaterialReactTable } from "material-react-table";
 import { BsFillPenFill, BsTrash2 } from "react-icons/bs";
-
+import { getAllEventsActions } from "../../redux/actions/EventAction";
 function DashBoardProductsPage() {
-  const { products, isLoading, error } = useSelector((s) => s.products);
+  const { events, isLoading, error } = useSelector((s) => s.events);
   const { shop } = useSelector((s) => s.shop);
-  console.log(products, isLoading);
+  console.log(events, isLoading);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (shop && !products) dispatch(getAllProductsActions(shop._id));
+    if (shop && !events) dispatch(getAllEventsActions(shop._id));
     if (error) toast.success(error);
-    console.log(products, "Products");
-  }, [dispatch, shop, products]);
+    console.log(events, "events");
+  }, [dispatch, shop, events]);
 
   const columns = useMemo(
     () => [
       {
         accessorKey: "_id", //access nested data with dot notation
         header: "ID",
+        size: 150,
+      },
+      {
+        accessorKey: "status", //access nested data with dot notation
+        header: "Status",
+        size: 150,
+        Cell: ({ cell }) => (
+          <div
+            className={`text-white w-[60px] rounded-md flex justify-center ${
+              cell.getValue() == "active" ? "bg-green-500" : "bg-red-400"
+            }  `}
+          >
+            {cell.getValue()}
+          </div>
+        ),
+      },
+      {
+        accessorKey: "start_date", //access nested data with dot notation
+        header: "start_date",
+        size: 150,
+      },
+      {
+        accessorKey: "end_date", //access nested data with dot notation
+        header: "end_date",
         size: 150,
       },
       {
@@ -68,11 +92,6 @@ function DashBoardProductsPage() {
         size: 150,
       },
       {
-        accessorKey: "stock",
-        header: "Stock Count",
-        size: 150,
-      },
-      {
         accessorKey: "_id", //normal accessorKey
         header: "id",
         size: 200,
@@ -97,11 +116,11 @@ function DashBoardProductsPage() {
         {isLoading ? (
           <Loader />
         ) : (
-          products && (
+          events && (
             <MaterialReactTable
               className="p-12"
               columns={columns}
-              data={products}
+              data={events}
             />
           )
         )}

@@ -1,20 +1,25 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { INIT_APP, SHOP_LOG_OUT, GET_PRODUCT_REQUEST } from "../actions";
+import {
+  INIT_APP,
+  GET_EVENT_REQUEST_ERROR,
+  GET_EVENT_REQUEST,
+  GET_EVENT_REQUEST_SUCCESS,
+} from "../actions";
 
 const initialState = {
   isLoading: false,
-  products: null,
+  events: null,
   error: null,
 };
 
-export const ProductReducer = createReducer(initialState, {
-  GET_PRODUCT_REQUEST: (state, action) => {
+export const EventReducer = createReducer(initialState, {
+  GET_EVENT_REQUEST: (state, action) => {
     return { ...state, isLoading: true };
   },
-  GET_PRODUCT_REQUEST_SUCCESS: (state, action) => {
-    return { ...state, isLoading: false, products: action.payload };
+  GET_EVENT_REQUEST_SUCCESS: (state, action) => {
+    return { ...state, isLoading: false, events: action.payload };
   },
-  GET_PRODUCT_REQUEST_ERROR: (state, action) => {
+  GET_EVENT_REQUEST_ERROR: (state, action) => {
     return { ...state, isLoading: false, error: action.payload };
   },
 });

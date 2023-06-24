@@ -2,11 +2,15 @@ import {
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_REQUEST_SUCCESS,
   GET_PRODUCT_REQUEST_ERROR,
+  GET_EVENT_REQUEST_ERROR,
+  GET_EVENT_REQUEST,
+  GET_EVENT_REQUEST_SUCCESS,
 } from ".";
 import {
   // CreateProductApi,
   GetAllProductAPI,
   CreateEventApi,
+  GetAllEventAPI,
 } from "../../utils/APIs/SallerApi";
 
 export const CreateEventAction = (values) => async (_) => {
@@ -51,12 +55,12 @@ export const CreateEventAction = (values) => async (_) => {
   }
 };
 
-export const getAllProductsActions = (id) => async (__) => {
-  __({ type: GET_PRODUCT_REQUEST });
+export const getAllEventsActions = (id) => async (__) => {
+  __({ type: GET_EVENT_REQUEST });
   try {
-    const { data } = await GetAllProductAPI(id);
-    __({ type: GET_PRODUCT_REQUEST_SUCCESS, payload: data.products });
+    const { data } = await GetAllEventAPI(id);
+    __({ type: GET_EVENT_REQUEST_SUCCESS, payload: data.events });
   } catch (error) {
-    __({ type: GET_PRODUCT_REQUEST_ERROR, payload: error.message });
+    __({ type: GET_EVENT_REQUEST_ERROR, payload: error.message });
   }
 };

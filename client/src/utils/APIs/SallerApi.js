@@ -18,5 +18,7 @@ export const CreateProductApi = (body, headers) =>
 
 export const CreateEventApi = (body, headers) =>
   API.post("events/create", body, headers);
+export const GetAllEventAPI = (id) => API.get(`events/get-events/${id}`);
+
 export const GetAllProductAPI = (id) =>
   API.get(`products/get-all-products/${id}`);
