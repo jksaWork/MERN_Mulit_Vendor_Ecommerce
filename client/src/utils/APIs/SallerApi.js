@@ -15,3 +15,5 @@ export const CreateProductApi = (body, headers) =>
   API.post("products/create", body, {
     headers: { "Content-Type": "multipart/form-data" },
   });
+export const GetAllProductAPI = (id) =>
+  API.get(`products/get-all-products/${id}`);

@@ -24,3 +24,16 @@ export const CreateProduct = async (req, res, next) => {
     });
   }
 };
+
+export const getAllShopProduct = async (req, res, next) => {
+  const id = req.params.id;
+  try {
+    const products = await Product.find({ shopId: id });
+    res.status(201).json({
+      message: "Product Fetched Success",
+      products,
+    });
+  } catch (error) {
+    next(ErrorHandler(error.message));
+  }
+};

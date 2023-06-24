@@ -1,4 +1,9 @@
-import { CreateProductApi } from "../../utils/APIs/SallerApi";
+import {
+  GET_PRODUCT_REQUEST,
+  GET_PRODUCT_REQUEST_SUCCESS,
+  GET_PRODUCT_REQUEST_ERROR,
+} from ".";
+import { CreateProductApi, GetAllProductAPI } from "../../utils/APIs/SallerApi";
 
 export const CreateProductAction = (values) => async (_) => {
   console.log(values, "From Actions");
@@ -31,6 +36,18 @@ export const CreateProductAction = (values) => async (_) => {
     headers: { "Content-Type": "multipart/form-data" },
   };
 
-  const { data } = await CreateProductApi(formData, config);
-  console.log(data);
+  try {
+    const { data } = await CreateProductApi(formData, config);
+    return true; //   console.log(data);
+  } catch (e) {}
+};
+
+export const getAllProductsActions = (id) => async (__) => {
+  __({ type: GET_PRODUCT_REQUEST });
+  try {
+    const { data } = await GetAllProductAPI(id);
+    __({ type: GET_PRODUCT_REQUEST_SUCCESS, payload: data.products });
+  } catch (error) {
+    __({ type: GET_PRODUCT_REQUEST_ERROR, payload: error.message });
+  }
 };

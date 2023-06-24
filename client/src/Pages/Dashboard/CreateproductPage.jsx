@@ -1,31 +1,41 @@
 import React from "react";
 import { DashboardLayout } from "../../components/Dashboard";
-import { Breadcrumbs, CustomFiled } from "../../components";
+import { Breadcrumbs, CustomFiled, Loader } from "../../components";
 import { Productlinks } from "../../static";
 import { Formik, Field, Form } from "formik";
 import { ProductValidation } from "../../static/validator";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CreateProductAction } from "../../redux/actions/ProductsAction";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 // import  from "../../components/CustomFiled";
 function CreateproductPage() {
   const [images, setImages] = useState();
   const dispatch = useDispatch();
-  const {
-    shop: { _id },
-  } = useSelector((s) => s.shop);
-  console.log(_id);
+  const [Loading, setLoading] = useState(true);
+  const { shop } = useSelector((s) => s.shop);
 
   const SaveProduct = (values) => {
     values.images = images;
     console.log(values);
-    dispatch(CreateProductAction(values));
+    dispatch(CreateProductAction(values)).then(() => {
+      toast.success("The Items Add Scueess Fuly");
+    });
   };
   const handleFileInputChange = (e) => {
     //     setImages(e.target.files);
     setImages([...e.target.files]);
   };
-  return (
+  useEffect(() => {
+    // console.log("Hello World");
+    if (shop != null) {
+      setLoading(true);
+    }
+  }, [shop]);
+  return !Loading ? (
+    <Loader />
+  ) : (
     <DashboardLayout>
       <Breadcrumbs
         links={[
@@ -48,7 +58,7 @@ function CreateproductPage() {
               originalPrice: "",
               discountPrice: "",
               stock: "",
-              shopId: _id,
+              shopId: shop?._id,
             }}
             validationSchema={ProductValidation}
             onSubmit={SaveProduct}

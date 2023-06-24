@@ -15,6 +15,7 @@ import {
   Dashboard,
   ShowShop,
   CreateproductPage,
+  DashBoardProductsPage,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -85,5 +86,9 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard/product/create",
     element: <CreateproductPage />,
+  },
+  {
+    path: "/dashboard/products",
+    element: <DashBoardProductsPage />,
   },
 ]);
