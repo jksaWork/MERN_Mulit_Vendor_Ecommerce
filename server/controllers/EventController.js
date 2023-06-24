@@ -25,13 +25,13 @@ export const CreateEvent = async (req, res, next) => {
   }
 };
 
-export const getAllShopProduct = async (req, res, next) => {
+export const getEvents = async (req, res, next) => {
   const id = req.params.id;
   try {
-    const products = await Product.find({ shopId: id });
+    const events = await Event.find({ shopId: id });
     res.status(201).json({
       message: "Product Fetched Success",
-      products,
+      events,
     });
   } catch (error) {
     next(ErrorHandler(error.message));
