@@ -90,13 +90,13 @@ export const dashboardSideBarItems = [
     ],
   },
   {
-    route: "/dashboard/products",
+    route: "/dashboard/events",
     icon: MdAddShoppingCart,
     name: "Events",
     has_items: true,
     links: [
-      { name: "show", route: "/dashboard/products" },
-      { name: "create", route: "/dashboard/product/create" },
+      { name: "show", route: "/dashboard/events" },
+      { name: "create", route: "/dashboard/events/create" },
     ],
   },
 

@@ -15,3 +15,5 @@ export { default as Dashboard } from "./Dashboard";
 export { default as ShowShop } from "./ShowShop";
 export { default as CreateproductPage } from "./Dashboard/CreateproductPage";
 export { default as DashBoardProductsPage } from "./Dashboard/DashBoardProductsPage";
+export { default as DashboardEventsPage } from "./Dashboard/DashboardEventsPage";
+export { default as CreateEventPage } from "./Dashboard/CreateEventPage.jsx";

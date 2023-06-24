@@ -671,3 +671,14 @@ export const Productlinks = [
     route: "/dashboard/products",
   },
 ];
+
+export const Evnetlinks = [
+  {
+    name: "home",
+    route: "/dashboard",
+  },
+  {
+    name: "evnets",
+    route: "/dashboard/events",
+  },
+];

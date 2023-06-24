@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 function DasahBoardSideBar() {
   return (
     <div className="w-full shadow-xl h-screen">
-      <div className="w-full flex justify-center h-[70px] items-center">
+      <div className="w-full  md:flex hidden  justify-center h-[70px] items-center">
         <img
           src="https://shopo.quomodothemes.website/assets/images/logo.svg"
           alt="Logo"
         />
       </div>
-      <div className="mt-3">
+      <div className="mt-3 md:pt-0 pt-10">
         <div className="flex flex-col">
           {dashboardSideBarItems.map((el, i) => {
             return !el.has_items ? (
@@ -38,11 +38,11 @@ const MenuWithItems = ({ el }) => {
         <span>
           <el.icon size={30} />
         </span>
-        <span className="text-2xl font-[400] capitalize text-gray-700">
+        <span className="text-2xl md:block hidden font-[400] capitalize text-gray-700">
           {el.name}
         </span>
         <span
-          className={`absolute transition-all  top-[50%] translate-y-[-50%] right-2 
+          className={`absolute hidden md:block transition-all  top-[50%] translate-y-[-50%] right-2 
           ${Open ? "rotate-180" : ""}
         `}
         >
@@ -57,7 +57,7 @@ const MenuWithItems = ({ el }) => {
       >
         {el.links.map((el, i) => (
           <Link to={el.route} key={i + "-" + el.route}>
-            <div className="text-xl py-1 capitalize"> {el.name} </div>
+            <div className="text-xl py-1  capitalize"> {el.name} </div>
           </Link>
         ))}{" "}
       </div>{" "}
@@ -71,7 +71,7 @@ const SingleMeun = ({ el }) => {
       <span>
         <el.icon size={25} />
       </span>
-      <span className="text-xl font-[400] capitalize text-gray-700">
+      <span className="text-xl md:block hidden font-[400] capitalize text-gray-700">
         {el.name}
       </span>
     </div>

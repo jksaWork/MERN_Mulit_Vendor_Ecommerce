@@ -16,6 +16,8 @@ import {
   ShowShop,
   CreateproductPage,
   DashBoardProductsPage,
+  CreateEventPage,
+  DashboardEventsPage,
 } from "./Pages";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -90,5 +92,13 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard/products",
     element: <DashBoardProductsPage />,
+  },
+  {
+    path: "/dashboard/events/create",
+    element: <CreateEventPage />,
+  },
+  {
+    path: "/dashboard/events",
+    element: <DashboardEventsPage />,
   },
 ]);

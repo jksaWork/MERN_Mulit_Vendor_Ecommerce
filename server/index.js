@@ -10,6 +10,7 @@ import ErrorHandler from "./utils/ErrorHandler.js";
 import cookieParser from "cookie-parser";
 import UserRouter from "./routes/users.js";
 import ProductRouter from "./routes/products.js";
+import EventsRouter from "./routes/events.js";
 
 import { configDotenv } from "dotenv";
 
@@ -38,6 +39,7 @@ connnect();
 // app.use(ErrorHandler);
 app.use("/api/users", UserRouter);
 app.use("/api/products", ProductRouter);
+app.use("/api/events", EventsRouter);
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
   console.log(`App Is Runing in port  http://127.0.0.1:${port}`);
