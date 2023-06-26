@@ -34,6 +34,40 @@ export const getAllShopProduct = async (req, res, next) => {
       products,
     });
   } catch (error) {
-    next(ErrorHandler(error.message));
+    next(new ErrorHandler(error.message));
+  }
+};
+
+export const deleteProduct = async (req, res, next) => {
+  try {
+    const productId = req.params.id;
+    console.log(productId);
+    const productData = await Product.findById(productId);
+    if (!productData) {
+      return next(new ErrorHandler("Pleas Provide Valid id!", 500));
+    }
+    productData.images.forEach((imageUrl) => {
+      const filename = imageUrl;
+      const filePath = `uploads/${filename}`;
+
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.log(err);
+        }
+      });
+    });
+
+    const product = await Product.findByIdAndDelete(productId);
+
+    if (!product) {
+      return next(new ErrorHandler("Product not found with this id!", 500));
+    }
+
+    res.status(201).json({
+      success: true,
+      message: "Product Deleted successfully!",
+    });
+  } catch (error) {
+    return next(new ErrorHandler(error, 400));
   }
 };
