@@ -22,3 +22,6 @@ export const GetAllEventAPI = (id) => API.get(`events/get-events/${id}`);
 
 export const GetAllProductAPI = (id) =>
   API.get(`products/get-all-products/${id}`);
+
+export const deteleProductAPI = (id) => API.delete(`products/${id}`);
+export const deteleEventAPI = (id) => API.delete(`events/${id}`);

@@ -1,6 +1,7 @@
 import Product from "../Models/Product.js";
 import Shop from "../Models/Shop.js";
 import ErrorHandler from "../utils/ErrorHandler.js";
+import fs from "fs";
 
 export const CreateProduct = async (req, res, next) => {
   console.log("Request Is Resvied");

@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DashboardLayout } from "../../components/Dashboard";
 import { Breadcrumbs, Loader } from "../../components";
-import { Productlinks } from "../../static";
+import { Evnetlinks, Productlinks } from "../../static";
 import { useEffect } from "react";
 // import { getAllProductsActions,  } from "../../redux/actions/ProductsAction";
 import { toast } from "react-toastify";
@@ -10,16 +10,24 @@ import { useMemo } from "react";
 import { MaterialReactTable } from "material-react-table";
 import { BsFillPenFill, BsTrash2 } from "react-icons/bs";
 import { getAllEventsActions } from "../../redux/actions/EventAction";
+import ProductTablepption from "../../components/Dashboard/Products/ProductTablepption";
+import EventTableOption from "../../components/Dashboard/Events/EventTableOption";
 function DashBoardProductsPage() {
   const { events, isLoading, error } = useSelector((s) => s.events);
   const { shop } = useSelector((s) => s.shop);
   console.log(events, isLoading);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (shop && !events) dispatch(getAllEventsActions(shop._id));
-    if (error) toast.success(error);
+    if (shop && !events) {
+      dispatch(getAllEventsActions(shop._id))
+        .then(() => {})
+        .catch((err) => {
+          toast.error(err.message);
+        });
+    }
+    // if (error) ;
     console.log(events, "events");
-  }, [dispatch, shop, events]);
+  }, [dispatch, shop]);
 
   const columns = useMemo(
     () => [
@@ -94,24 +102,20 @@ function DashBoardProductsPage() {
       {
         accessorKey: "_id", //normal accessorKey
         header: "id",
+        // accessorFn: (row) => row,
         size: 200,
-        Cell: ({ cell }) => (
-          <div className="flex gap-2">
-            <span className="w-[30px] h-[30px] items-center cursor-pointer text-white  rounded-md flex justify-center">
-              <BsTrash2 size={20} color="red" />
-            </span>
-            <span className="w-[30px] h-[30px]  cursor-pointer items-center text-white rounded-md flex justify-center">
-              <BsFillPenFill size={20} color="black" />
-            </span>
-          </div>
-        ),
+        Cell: ({ cell, row }) => {
+          // const row = cell;
+          // console.log(, "rowwwww");
+          return <EventTableOption data={row.original} />;
+        },
       },
     ],
     []
   );
   return (
     <DashboardLayout>
-      <Breadcrumbs links={[...Productlinks]} />
+      <Breadcrumbs links={[...Evnetlinks]} />
       <div className=" bg-white rounded-md p-3">
         {isLoading ? (
           <Loader />

@@ -1,6 +1,7 @@
 import React from "react";
 import { BiHeart } from "react-icons/bi";
 import { MdClose, MdOutlineChat, MdShoppingCart } from "react-icons/md";
+import { serverUrl } from "../../static";
 function ProductDetails({
   setOpenDetailsModal,
   product: {
@@ -12,6 +13,9 @@ function ProductDetails({
     price,
     rating,
     total_sell,
+    originalPrice,
+    discountPrice,
+    images,
   },
 }) {
   return (
@@ -36,13 +40,13 @@ function ProductDetails({
               <div className="md:w-1/2 px-10">
                 {/* Image COntainer */}
                 <div>
-                  <img src={image_Url[0].url} className="max-w-[300px]" />{" "}
+                  <img src={serverUrl + images[0]} className="max-w-[300px]" />{" "}
                 </div>
                 {/* Shop Container */}
                 <div className="flex justify-start gap-2">
                   <div>
                     <img
-                      src={shop.shop_avatar.url}
+                      src={shop.avatar}
                       className="w-[70px] h-[70px] rounded-full"
                     />{" "}
                   </div>
@@ -63,7 +67,7 @@ function ProductDetails({
                 <div className="flex justify-start">
                   {/* price */}
                   <div className="text-2xl font-bold">
-                    {(price ? price : discount_price) + "$"}
+                    {(originalPrice ? originalPrice : discountPrice) + "$"}
                   </div>
                   {/* dicount */}
                 </div>

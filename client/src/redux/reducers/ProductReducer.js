@@ -17,4 +17,11 @@ export const ProductReducer = createReducer(initialState, {
   GET_PRODUCT_REQUEST_ERROR: (state, action) => {
     return { ...state, isLoading: false, error: action.payload };
   },
+  DELETE_PRODUCT_REQUEST_SUCCESS: (state, action) => {
+    return {
+      ...state,
+      isLoading: false,
+      products: state.products.filter((el) => el._id != action.payload),
+    };
+  },
 });

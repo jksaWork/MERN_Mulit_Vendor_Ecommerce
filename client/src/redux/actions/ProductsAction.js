@@ -2,8 +2,14 @@ import {
   GET_PRODUCT_REQUEST,
   GET_PRODUCT_REQUEST_SUCCESS,
   GET_PRODUCT_REQUEST_ERROR,
+  DELETE_PRODUCT_REQUEST_SUCCESS,
+  DELETE_PRODUCT_REQUEST_ERROR,
 } from ".";
-import { CreateProductApi, GetAllProductAPI } from "../../utils/APIs/SallerApi";
+import {
+  CreateProductApi,
+  GetAllProductAPI,
+  deteleProductAPI,
+} from "../../utils/APIs/SallerApi";
 
 export const CreateProductAction = (values) => async (_) => {
   console.log(values, "From Actions");
@@ -49,5 +55,16 @@ export const getAllProductsActions = (id) => async (__) => {
     __({ type: GET_PRODUCT_REQUEST_SUCCESS, payload: data.products });
   } catch (error) {
     __({ type: GET_PRODUCT_REQUEST_ERROR, payload: error.message });
+  }
+};
+
+export const deleteProductAction = (id) => async (__) => {
+  try {
+    const { data } = await deteleProductAPI(id);
+    console.log(data);
+    __({ type: DELETE_PRODUCT_REQUEST_SUCCESS, payload: id });
+  } catch (error) {
+    __({ type: DELETE_PRODUCT_REQUEST_ERROR, payload: error.message });
+    throw error;
   }
 };

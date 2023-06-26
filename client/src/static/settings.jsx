@@ -11,6 +11,7 @@ import {
 } from "react-icons/bs";
 import { FaUser, FaShoppingBag, FaShare } from "react-icons/fa";
 import {
+  MdShoppingCart,
   MdEmail,
   MdOutlineAddReaction,
   MdOutlineTrackChanges,
@@ -80,24 +81,24 @@ export const dashboardSideBarItems = [
     has_items: false,
   },
   {
-    route: "/shop/products",
+    route: "/dashboard/products",
     icon: BsCardList,
     name: "Products",
-    has_items: true,
-    links: [
-      { name: "show", route: "/dashboard/products" },
-      { name: "create", route: "/dashboard/product/create" },
-    ],
+  },
+  {
+    route: "/dashboard/products/create",
+    icon: BsCardList,
+    name: "create Prodcut",
   },
   {
     route: "/dashboard/events",
-    icon: MdAddShoppingCart,
+    icon: MdShoppingCart,
     name: "Events",
-    has_items: true,
-    links: [
-      { name: "show", route: "/dashboard/events" },
-      { name: "create", route: "/dashboard/events/create" },
-    ],
+  },
+  {
+    route: "/dashboard/events/create",
+    icon: MdAddShoppingCart,
+    name: "create events",
   },
 
   {

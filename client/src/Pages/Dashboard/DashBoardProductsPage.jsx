@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import { useMemo } from "react";
 import { MaterialReactTable } from "material-react-table";
 import { BsFillPenFill, BsTrash2 } from "react-icons/bs";
+import ProductTablepption from "../../components/Dashboard/Products/ProductTablepption";
 
 function DashBoardProductsPage() {
   const { products, isLoading, error } = useSelector((s) => s.products);
@@ -42,10 +43,8 @@ function DashBoardProductsPage() {
         accessorKey: "category", //normal accessorKey
         header: "category",
         size: 200,
-        Cell: ({ cell }) => (
-          <div className=" badge-accent  text-white w-[40px] rounded-md flex justify-center">
-            {cell.getValue()}
-          </div>
+        Cell: ({ row }) => (
+          <ProductTablepption key={row.original.id} data={row.original} />
         ),
       },
       {
@@ -77,7 +76,7 @@ function DashBoardProductsPage() {
         header: "id",
         size: 200,
         Cell: ({ cell }) => (
-          <div className="flex gap-2">
+          <div className="flex gap-2" key={cell.getValue()}>
             <span className="w-[30px] h-[30px] items-center cursor-pointer text-white  rounded-md flex justify-center">
               <BsTrash2 size={20} color="red" />
             </span>

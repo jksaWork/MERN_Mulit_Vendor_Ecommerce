@@ -4,6 +4,8 @@ import {
   GET_EVENT_REQUEST_ERROR,
   GET_EVENT_REQUEST,
   GET_EVENT_REQUEST_SUCCESS,
+  DELETE_EVENT_REQUEST_ERROR,
+  DELETE_EVENT_REQUEST_SUCCESS,
 } from "../actions";
 
 const initialState = {
@@ -21,5 +23,12 @@ export const EventReducer = createReducer(initialState, {
   },
   GET_EVENT_REQUEST_ERROR: (state, action) => {
     return { ...state, isLoading: false, error: action.payload };
+  },
+  DELETE_EVENT_REQUEST_SUCCESS: (state, action) => {
+    return {
+      ...state,
+      isLoading: false,
+      events: state.events.filter((el) => el._id != action.payload),
+    };
   },
 });

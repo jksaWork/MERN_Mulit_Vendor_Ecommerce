@@ -1,6 +1,8 @@
 import Event from "../Models/Event.js";
 import Shop from "../Models/Shop.js";
 import ErrorHandler from "../utils/ErrorHandler.js";
+import fs from "fs";
+
 export const CreateEvent = async (req, res, next) => {
   console.log("Request Is Resvied   213123");
   const shopId = req.body.shopId;
@@ -35,5 +37,39 @@ export const getEvents = async (req, res, next) => {
     });
   } catch (error) {
     next(ErrorHandler(error.message));
+  }
+};
+
+export const deleteEvent = async (req, res, next) => {
+  try {
+    const eventId = req.params.id;
+    // console.log(productId);
+    const evntData = await Event.findById(eventId);
+    if (!evntData) {
+      return next(new ErrorHandler("Pleas Provide Valid id!", 500));
+    }
+    evntData.images.forEach((imageUrl) => {
+      const filename = imageUrl;
+      const filePath = `uploads/${filename}`;
+
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.log(err);
+        }
+      });
+    });
+
+    const event = await Event.findByIdAndDelete(eventId);
+
+    if (!event) {
+      return next(new ErrorHandler("Product not found with this id!", 500));
+    }
+
+    res.status(201).json({
+      success: true,
+      message: "Product Deleted successfully!",
+    });
+  } catch (error) {
+    return next(new ErrorHandler(error, 400));
   }
 };
